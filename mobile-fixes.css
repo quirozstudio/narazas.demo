@@ -49,8 +49,8 @@
   .main-nav { inset: 93px 0 auto; }
   .wordmark { font-size: 18px; }
 
-  .hero { display: block; min-height: max(950px, calc(100svh - 29px)); overflow: hidden; }
-  .hero-copy { width: 100%; min-height: max(950px, calc(100svh - 29px)); justify-content: flex-start; padding-top: 142px; padding-right: var(--page-pad); padding-bottom: 360px; }
+  .hero { display: block; min-height: max(900px, calc(100svh - 29px)); overflow: hidden; }
+  .hero-copy { width: 100%; min-height: max(900px, calc(100svh - 29px)); justify-content: flex-start; padding-top: 350px; padding-right: var(--page-pad); padding-bottom: 46px; }
   .kicker { margin-bottom: 25px; }
   .hero h1 { font-size: clamp(51px, 15.1vw, 72px); line-height: .77; }
   .hero h1 em { max-width: 345px; font-size: .63em; line-height: .9; }
@@ -58,11 +58,11 @@
   .hero-actions { display: grid; width: 100%; margin-top: 27px; }
   .hero-actions .button { width: 100%; }
   .hero-art { position: absolute; inset: 0; width: 100%; min-height: 100%; overflow: hidden; }
-  .hero-art::after { background: linear-gradient(180deg, rgba(243, 232, 208, .99) 0%, rgba(243, 232, 208, .96) 43%, rgba(243, 232, 208, .66) 59%, rgba(243, 232, 208, .06) 77%), linear-gradient(90deg, rgba(243, 232, 208, .42), transparent 76%); }
+  .hero-art::after { background: linear-gradient(180deg, rgba(243, 232, 208, .06) 0%, rgba(243, 232, 208, .12) 30%, rgba(243, 232, 208, .58) 45%, rgba(243, 232, 208, .94) 61%, var(--cream) 82%), linear-gradient(90deg, rgba(243, 232, 208, .2), transparent 72%); }
   .hero-image { height: 100%; min-height: 100%; aspect-ratio: auto; overflow: hidden; }
-  .hero-image img { object-position: 63% center; transform: translateY(300px) scale(1.02); transform-origin: center top; }
-  .hero-script { top: auto; right: 14px; bottom: 22px; left: auto; padding: 8px 10px; background: rgba(245, 201, 75, .8); font-size: 9px; }
-  .editor-note { right: auto; bottom: 22px; left: 20px; min-width: 112px; padding: 10px 12px; font-size: 7px; }
+  .hero-image img { object-position: 63% center; transform: none; }
+  .hero-script,
+  .editor-note { display: none; }
   .film-strip { top: 16px; right: -9px; width: 64px; }
   .film-strip span { height: 44px; margin-bottom: 5px; }
   .hero-signoff { display: none; }
