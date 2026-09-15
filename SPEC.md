@@ -10,7 +10,7 @@ Creadores de contenido y personas que quieren editar mejor, crear más rápido y
 
 ## Arquitectura
 
-- Demo estática sin dependencias externas ni backend.
+- Demo estática sin dependencias externas ni backend, preparada para publicarse tanto en raíz como en un subdirectorio de GitHub Pages.
 - `index.html`: home y ficha de producto controlada por query string para facilitar la demo.
 - `productos/lut-pack/index.html`: entrada de ruta que abre la ficha de LUT Pack.
 - `styles.css`: tokens visuales, layout responsive, componentes y animaciones.

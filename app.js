@@ -1,3 +1,7 @@
+const SITE_ROOT = window.location.hostname.endsWith('github.io') ? '/narazas.demo' : '';
+const asset = (file) => `${SITE_ROOT}/images/${file}`;
+const page = (path) => `${SITE_ROOT}${path}`;
+
 const PRODUCTS = [
   {
     id: 'lut-pack',
@@ -6,7 +10,7 @@ const PRODUCTS = [
     category: 'COLOR',
     price: '29 €',
     description: 'El color que utilizo para darle personalidad a mis vídeos, listo para llevarlo a los tuyos.',
-    image: '/images/narazas-lut-pack.svg',
+    image: asset('narazas-lut-pack.svg'),
     includes: ['12 LUTs para transformar tu color', 'Guía rápida de instalación', 'Uso en CapCut y editores compatibles'],
   },
   {
@@ -16,7 +20,7 @@ const PRODUCTS = [
     category: 'CREACIÓN',
     price: '24 €',
     description: 'Plantillas pensadas para crear más rápido sin empezar siempre desde cero.',
-    image: '/images/narazas-templates.svg',
+    image: asset('narazas-templates.svg'),
     includes: ['Plantillas editables', 'Sistema de organización visual', 'Guía de uso para creadores'],
   },
   {
@@ -26,7 +30,7 @@ const PRODUCTS = [
     category: 'RECURSOS',
     price: '19 €',
     description: 'Una selección de recursos para darle intención a cada pieza de contenido.',
-    image: '/images/narazas-resource-pack.svg',
+    image: asset('narazas-resource-pack.svg'),
     includes: ['Recursos digitales seleccionados', 'Archivo de referencias', 'Actualizaciones futuras — demo'],
   },
 ];
@@ -37,7 +41,8 @@ const nav = document.querySelector('.main-nav');
 const menuToggle = document.querySelector('.menu-toggle');
 
 function imageBlock(src, alt, className = '') {
-  return `<div class="image-frame ${className}"><img src="${src}" alt="${alt}" loading="lazy" /></div>`;
+  const resolvedSrc = src.startsWith('/images/') ? `${SITE_ROOT}${src}` : src;
+  return `<div class="image-frame ${className}"><img src="${resolvedSrc}" alt="${alt}" loading="lazy" /></div>`;
 }
 
 function productCard(product, index) {
@@ -52,7 +57,7 @@ function productCard(product, index) {
       <h3>${product.name}</h3>
       <p>${product.description}</p>
       <div class="product-meta"><span>${product.price}</span><span>Descargable / demo</span></div>
-      <a class="text-link" href="${product.id === 'lut-pack' ? '/productos/lut-pack/' : '#demo'}" data-product="${product.id}">Descubrir <span>↗</span></a>
+      <a class="text-link" href="${product.id === 'lut-pack' ? page('/productos/lut-pack/') : '#demo'}" data-product="${product.id}">Descubrir <span>↗</span></a>
     </div>
   </article>`;
 }
@@ -66,7 +71,7 @@ function homeTemplate() {
       <div class="hero-actions"><a class="button button--dark" href="#recursos">Explorar recursos <span>↗</span></a><a class="button button--line" href="#masterclass">Ver masterclass <span>↗</span></a></div>
     </div>
     <div class="hero-art reveal reveal-delay">
-      ${imageBlock('/images/narazas-hero.jpg', 'Nathalie Narazas creando contenido', 'hero-image')}
+      ${imageBlock(asset('narazas-hero.jpg'), 'Nathalie Narazas creando contenido', 'hero-image')}
       <div class="hero-sticker">N<br /><span>—</span><br />N</div>
       <div class="editor-chip"><span class="record-dot"></span> REC <strong>00:14:27</strong><span>9:16</span></div>
       <div class="hero-caption">PLACEHOLDER /<br />FOTOGRAFÍA NARAZAS</div>
@@ -80,11 +85,11 @@ function homeTemplate() {
 
   <section class="resources section-pad" id="recursos"><div class="section-heading reveal"><p class="section-label">02 / RECURSOS DIGITALES</p><h2>Recursos para<br /><em>crear mejor.</em></h2><p>Pequeñas herramientas. Mucha personalidad.</p></div><div class="product-list">${PRODUCTS.map(productCard).join('')}</div></section>
 
-  <section class="compare-section section-pad reveal"><div class="compare-heading"><p class="section-label">COLOR / NARAZAS LUT PACK</p><h2>El mood<br /><em>empieza aquí.</em></h2><p>Una misma imagen. Otra forma de sentirla.</p></div><div class="compare-wrap"><div class="compare" data-comparison><div class="compare-after">${imageBlock('/images/narazas-after.svg', 'Imagen demo con color Narazas')}</div><div class="compare-before">${imageBlock('/images/narazas-before.svg', 'Imagen demo antes del color')}</div><div class="compare-label compare-label--before">ANTES</div><div class="compare-label compare-label--after">DESPUÉS</div><div class="compare-handle"><span>←</span><i></i><span>→</span></div><input type="range" min="0" max="100" value="52" aria-label="Comparar antes y después del color" /></div></div></section>
+  <section class="compare-section section-pad reveal"><div class="compare-heading"><p class="section-label">COLOR / NARAZAS LUT PACK</p><h2>El mood<br /><em>empieza aquí.</em></h2><p>Una misma imagen. Otra forma de sentirla.</p></div><div class="compare-wrap"><div class="compare" data-comparison><div class="compare-after">${imageBlock(asset('narazas-after.svg'), 'Imagen demo con color Narazas')}</div><div class="compare-before">${imageBlock(asset('narazas-before.svg'), 'Imagen demo antes del color')}</div><div class="compare-label compare-label--before">ANTES</div><div class="compare-label compare-label--after">DESPUÉS</div><div class="compare-handle"><span>←</span><i></i><span>→</span></div><input type="range" min="0" max="100" value="52" aria-label="Comparar antes y después del color" /></div></div></section>
 
-  <section class="masterclass" id="masterclass"><div class="masterclass-inner section-pad"><div class="masterclass-copy reveal"><p class="section-label section-label--light">03 / NARAZAS PRESENTA</p><h2>Edita<br /><em>conmigo.</em></h2><p class="masterclass-title">MASTERCLASS DE CAPCUT</p><p class="masterclass-lede">Del material en bruto<br />al vídeo terminado.</p><button class="button button--cream" type="button" data-demo="masterclass">Quiero mi plaza <span>↗</span></button></div><div class="masterclass-art reveal reveal-delay">${imageBlock('/images/narazas-hero.jpg', 'Nathalie Narazas creando contenido', 'masterclass-image')}<span class="class-note class-note--top">REC ●</span><span class="class-note class-note--side">CUT<br />COLOR<br />SOUND<br />EXPORT</span><span class="class-note class-note--bottom">6 HORAS / 2 DÍAS</span></div></div></section>
+  <section class="masterclass" id="masterclass"><div class="masterclass-inner section-pad"><div class="masterclass-copy reveal"><p class="section-label section-label--light">03 / NARAZAS PRESENTA</p><h2>Edita<br /><em>conmigo.</em></h2><p class="masterclass-title">MASTERCLASS DE CAPCUT</p><p class="masterclass-lede">Del material en bruto<br />al vídeo terminado.</p><button class="button button--cream" type="button" data-demo="masterclass">Quiero mi plaza <span>↗</span></button></div><div class="masterclass-art reveal reveal-delay">${imageBlock(asset('narazas-hero.jpg'), 'Nathalie Narazas creando contenido', 'masterclass-image')}<span class="class-note class-note--top">REC ●</span><span class="class-note class-note--side">CUT<br />COLOR<br />SOUND<br />EXPORT</span><span class="class-note class-note--bottom">6 HORAS / 2 DÍAS</span></div></div></section>
 
-  <section class="about section-pad" id="sobre-mi"><div class="about-art reveal">${imageBlock('/images/narazas-hero.jpg', 'Nathalie Narazas creando contenido', 'about-image')}<span>NOTA PERSONAL / 01</span></div><div class="about-copy reveal"><p class="section-label">04 / SOBRE NATHALIE</p><h2>Hola,<br /><em>soy Nathalie.</em></h2><p>Creo contenido para vivir. Y estos son algunos de los recursos que forman parte de mi proceso creativo.</p><a class="text-link" href="#final">Conocer el universo <span>↗</span></a></div></section>
+  <section class="about section-pad" id="sobre-mi"><div class="about-art reveal">${imageBlock(asset('narazas-hero.jpg'), 'Nathalie Narazas creando contenido', 'about-image')}<span>NOTA PERSONAL / 01</span></div><div class="about-copy reveal"><p class="section-label">04 / SOBRE NATHALIE</p><h2>Hola,<br /><em>soy Nathalie.</em></h2><p>Creo contenido para vivir. Y estos son algunos de los recursos que forman parte de mi proceso creativo.</p><a class="text-link" href="#final">Conocer el universo <span>↗</span></a></div></section>
 
   <section class="final-cta section-pad reveal" id="final"><p class="section-label">05 / TU PRÓXIMO PROYECTO</p><h2>¿Lista para<br /><em>crear?</em></h2><a class="button button--dark" href="#recursos">Explorar recursos <span>↗</span></a></section>
   <footer class="footer section-pad"><a class="wordmark" href="#inicio">NARAZAS<sup>®</sup></a><div class="footer-links"><button type="button" data-demo="instagram">Instagram ↗</button><button type="button" data-demo="contact">Contacto ↗</button></div><span>© NARAZAS / DEMO</span></footer>`;
@@ -122,11 +127,21 @@ function setupInteractions() {
   document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
 }
 
+function resolveInternalLinks() {
+  if (!SITE_ROOT) return;
+  document.querySelectorAll('a[href^="/"]').forEach((link) => {
+    const href = link.getAttribute('href');
+    if (href === SITE_ROOT || href.startsWith(`${SITE_ROOT}/`)) return;
+    link.setAttribute('href', `${SITE_ROOT}${href}`);
+  });
+}
+
 const observer = new IntersectionObserver((entries) => entries.forEach((entry) => { if (entry.isIntersecting) { entry.target.classList.add('is-visible'); observer.unobserve(entry.target); } }), { threshold: 0.12 });
 
 const productId = new URLSearchParams(window.location.search).get('producto');
 const product = PRODUCTS.find((item) => item.id === productId);
 app.innerHTML = product ? productTemplate(product) : homeTemplate();
+resolveInternalLinks();
 setupInteractions();
 
 menuToggle.addEventListener('click', () => {
