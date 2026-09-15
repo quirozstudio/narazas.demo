@@ -23,6 +23,6 @@
   }
 
   .final-cta h2 {
-    font-size: clamp(82px, 24vw, 140px);
+    font-size: clamp(70px, 21vw, 120px);
   }
 }

@@ -60,5 +60,6 @@ Header con Recursos, Masterclass y Sobre mí. Los productos enlazan a la ficha d
 - La masterclass tiene ritmo visual propio y muestra “Próximamente”.
 - No hay pagos, autenticación, backend, descargas ni reservas reales.
 - No existe overflow horizontal en móvil.
+- Los titulares no parten palabras ni quedan recortados entre 360 px y escritorio.
 - Se puede sustituir fotografía y catálogo sin buscar datos dispersos.
 - Los CTA y navegación tienen estados visibles y funcionan en teclado.

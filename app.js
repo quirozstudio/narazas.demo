@@ -74,7 +74,7 @@ function homeTemplate() {
       ${imageBlock(asset('narazas-hero.jpg'), 'Nathalie Narazas creando contenido', 'hero-image')}
       <div class="hero-sticker">N<br /><span>—</span><br />N</div>
       <div class="editor-chip"><span class="record-dot"></span> REC <strong>00:14:27</strong><span>9:16</span></div>
-      <div class="hero-caption">PLACEHOLDER /<br />FOTOGRAFÍA NARAZAS</div>
+      <div class="hero-caption">NATHALIE NARAZAS /<br />CREATOR PORTRAIT</div>
     </div>
     <div class="scroll-cue"><span></span> Scroll para explorar</div>
   </section>
@@ -93,7 +93,7 @@ function homeTemplate() {
 
   <section class="masterclass" id="masterclass"><div class="masterclass-inner section-pad"><div class="masterclass-copy reveal"><p class="section-label section-label--light">03 / NARAZAS PRESENTA</p><h2>Edita<br /><em>conmigo.</em></h2><p class="masterclass-title">MASTERCLASS DE CAPCUT</p><p class="masterclass-lede">Del material en bruto<br />al vídeo terminado.</p><button class="button button--cream" type="button" data-demo="masterclass">Quiero mi plaza <span>↗</span></button></div><div class="masterclass-art reveal reveal-delay">${imageBlock(asset('narazas-hero.jpg'), 'Nathalie Narazas creando contenido', 'masterclass-image')}<span class="class-note class-note--top">REC ●</span><span class="class-note class-note--side">CUT<br />COLOR<br />SOUND<br />EXPORT</span><span class="class-note class-note--bottom">6 HORAS / 2 DÍAS</span></div></div></section>
 
-  <section class="about section-pad" id="sobre-mi"><div class="about-art reveal">${imageBlock(asset('narazas-hero.jpg'), 'Nathalie Narazas creando contenido', 'about-image')}<span>NOTA PERSONAL / 01</span></div><div class="about-copy reveal"><p class="section-label">04 / SOBRE NATHALIE</p><h2>Hola,<br /><em>soy Nathalie.</em></h2><p>Creo contenido para vivir. Y estos son algunos de los recursos que forman parte de mi proceso creativo.</p><a class="text-link" href="#final">Conocer el universo <span>↗</span></a></div></section>
+  <section class="about section-pad" id="sobre-mi"><div class="about-art reveal">${imageBlock(asset('narazas-hero.jpg'), 'Nathalie Narazas creando contenido', 'about-image')}<span>NOTA PERSONAL / 01</span></div><div class="about-copy reveal"><p class="section-label">04 / SOBRE NATHALIE</p><h2>Hola,<br /><em>soy<br />Nathalie.</em></h2><p>Creo contenido para vivir. Y estos son algunos de los recursos que forman parte de mi proceso creativo.</p><a class="text-link" href="#final">Conocer el universo <span>↗</span></a></div></section>
 
   <section class="final-cta section-pad reveal" id="final"><p class="section-label">05 / TU PRÓXIMO PROYECTO</p><h2>¿Lista para<br /><em>crear?</em></h2><a class="button button--dark" href="#recursos">Explorar recursos <span>↗</span></a></section>
   <footer class="footer section-pad"><a class="wordmark" href="#inicio">NARAZAS<sup>®</sup></a><div class="footer-links"><button type="button" data-demo="instagram">Instagram ↗</button><button type="button" data-demo="contact">Contacto ↗</button></div><span>© NARAZAS / DEMO</span></footer>`;
@@ -128,6 +128,11 @@ function setupInteractions() {
     showToast(messages[button.dataset.demo]);
   }));
   document.querySelectorAll('.main-nav a').forEach((link) => link.addEventListener('click', () => { nav.classList.remove('is-open'); menuToggle.setAttribute('aria-expanded', 'false'); }));
+  document.querySelectorAll('[data-product]').forEach((link) => link.addEventListener('click', (event) => {
+    if (link.dataset.product === 'lut-pack') return;
+    event.preventDefault();
+    showToast('Ficha demo en preparación. El catálogo definitivo se añadirá cuando NARAZAS confirme sus productos.');
+  }));
   document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
 }
 
@@ -145,6 +150,16 @@ const observer = new IntersectionObserver((entries) => entries.forEach((entry) =
 const productId = new URLSearchParams(window.location.search).get('producto');
 const product = PRODUCTS.find((item) => item.id === productId);
 app.innerHTML = product ? productTemplate(product) : homeTemplate();
+const priorityImage = document.querySelector('.hero-image img');
+if (priorityImage) {
+  priorityImage.loading = 'eager';
+  priorityImage.fetchPriority = 'high';
+}
+if (product) {
+  document.querySelectorAll('.main-nav a[href^="#"]').forEach((link) => {
+    link.setAttribute('href', page(`/${link.getAttribute('href')}`));
+  });
+}
 resolveInternalLinks();
 setupInteractions();
 
