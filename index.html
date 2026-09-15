@@ -6,6 +6,10 @@
     <meta name="theme-color" content="#f3e8d0" />
     <meta name="description" content="NARAZAS — recursos digitales y formación para creadores." />
     <title>NARAZAS® — Crea contenido que se sienta tuyo</title>
+    <script>
+      const siteBase = window.location.hostname.endsWith('github.io') ? '/narazas.demo/' : '/';
+      document.head.appendChild(Object.assign(document.createElement('base'), { href: siteBase }));
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
