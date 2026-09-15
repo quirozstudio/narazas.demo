@@ -15,7 +15,7 @@ Creadores de contenido y personas que quieren editar mejor, crear más rápido y
 - `productos/lut-pack/index.html`: entrada de ruta que abre la ficha de LUT Pack.
 - `styles.css`: tokens visuales, layout responsive, componentes y animaciones.
 - `app.js`: contenido centralizado, navegación, comparador antes/después y estados demo.
-- `public/images/`: assets visuales editables. `narazas-hero.jpg` contiene actualmente la fotografía real de Nathalie y se reutiliza en hero, masterclass y presentación; el resto son placeholders SVG sustituibles.
+- `public/images/`: copias JPG optimizadas de las fotografías finales. Cada sección utiliza su recurso específico y los originales permanecen intactos en `img/`.
 
 ## Identidad visual
 
@@ -26,13 +26,13 @@ Creadores de contenido y personas que quieren editar mejor, crear más rápido y
 
 ## Componentes
 
-Header compacto, hero con fotografía, banda marquee, barra de compatibilidad provisional, introducción, listado editorial de productos, comparador LUT, bloque “cómo funciona”, bloque independiente de masterclass, bloque sobre Nathalie, CTA final, footer y ficha de producto.
+Entrada breve, cinta editorial, header comercial, hero partido, banda de ventajas, catálogo editorial de tres productos, comparador LUT, bloque independiente de masterclass, bloque sobre Nathalie, CTA final, footer y ficha de producto.
 
 ## Productos demo
 
-1. Narazas LUT Pack — Color — precio demo editable.
-2. Creator Templates — Creación — precio demo editable.
-3. Creator Resource Pack — Recursos — precio demo editable.
+1. Narazas LUT Pack — Color — 49,00 €.
+2. Creator Templates — Creación — 39,00 €.
+3. Creator Resource Pack — Recursos — 29,00 €.
 
 Los datos viven en `PRODUCTS` dentro de `app.js`.
 
@@ -46,11 +46,11 @@ La home parte de móvil: una sola columna, CTAs cómodos, nav accesible, imágen
 
 ## Animaciones
 
-Reveals de opacidad y desplazamiento, hover mínimo, marquee lento y transición del comparador. Todo se desactiva o simplifica con `prefers-reduced-motion`.
+Entrada de 1,1 segundos, reveals de opacidad y desplazamiento, hover, inclinación 3D mínima en escritorio, cinta lenta y transición del comparador. Todo se desactiva o simplifica con `prefers-reduced-motion`.
 
 ## Navegación
 
-Header con Recursos, Masterclass y Sobre mí. Los productos enlazan a la ficha de LUT Pack o muestran estado demo. La compra y la reserva no son operaciones reales.
+Header con Recursos, Masterclass, Sobre mí y Contacto, además de controles demo de búsqueda, usuario y bolsa. Los productos enlazan a la ficha de LUT Pack o muestran estado demo. La compra y la reserva no son operaciones reales.
 
 ## Criterios de aceptación
 

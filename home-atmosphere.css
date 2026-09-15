@@ -1,223 +1,45 @@
-/* Home-inspired visual language: warm wall art, wood and the red/cream rug. */
+/* Formas inspiradas en el hogar de Nathalie: arcos, alfombra y geometría cálida. */
 body {
-  background-color: #f3e8d0;
-  background-image: radial-gradient(circle at 14% 8%, rgba(183, 42, 46, .055) 0 1px, transparent 1.5px);
-  background-size: 26px 26px;
-  overflow-x: clip;
+  background-color: var(--cream);
+  background-image: radial-gradient(circle at 15% 10%, rgba(183, 42, 46, .05) 0 1px, transparent 1.4px);
+  background-size: 25px 25px;
 }
 
-html {
-  overflow-x: clip;
-}
-
-h1,
-h2,
-h3,
-summary {
-  overflow-wrap: normal;
-  word-break: normal;
-  hyphens: none;
-}
-
-a:focus-visible,
-button:focus-visible,
-input:focus-visible,
-summary:focus-visible {
-  outline: 2px solid currentColor;
-  outline-offset: 4px;
-}
-
-.marquee {
-  overflow: clip;
-  contain: paint;
-}
-
-.hero,
-.intro,
-.resources,
-.compare-section,
-.about,
-.final-cta {
-  overflow: hidden;
+.resources, .about, .final-cta, .product-hero, .detail-compare, .faq {
+  position: relative;
   isolation: isolate;
 }
-
-.hero > *,
-.intro > *,
-.resources > *,
-.compare-section > *,
-.about > *,
-.final-cta > * {
+.resources > *, .about > *, .final-cta > *, .product-hero > *, .detail-compare > *, .faq > * {
   position: relative;
   z-index: 1;
 }
 
-/* Abstract wall piece: layered arches and blocks taken from the warm palette. */
-.hero::before {
-  content: "";
-  position: absolute;
-  z-index: 0;
-  top: 9%;
-  right: 4%;
-  width: min(58vw, 780px);
-  height: min(58vw, 780px);
-  opacity: .22;
-  transform: rotate(4deg);
-  background:
-    radial-gradient(ellipse at 48% 44%, transparent 0 22%, var(--red) 22.4% 28%, transparent 28.4%),
-    radial-gradient(ellipse at 48% 44%, transparent 0 39%, var(--orange) 39.4% 45%, transparent 45.4%),
-    linear-gradient(90deg, transparent 0 47%, var(--yellow) 47% 56%, transparent 56%),
-    linear-gradient(180deg, transparent 0 55%, var(--red) 55% 67%, transparent 67%);
-  pointer-events: none;
-}
-
-/* Rug-shaped floor plane with an imperfect, repeating geometric motif. */
-.hero::after {
-  content: "";
-  position: absolute;
-  z-index: 0;
-  left: -7%;
-  bottom: -18px;
-  width: min(74vw, 980px);
-  height: 132px;
-  opacity: .92;
-  transform: rotate(-2deg);
-  background:
-    radial-gradient(ellipse at 18% 130%, transparent 0 26%, var(--cream) 26.7% 35%, transparent 35.7%),
-    radial-gradient(ellipse at 51% -25%, transparent 0 25%, var(--cream) 25.7% 34%, transparent 34.7%),
-    radial-gradient(ellipse at 84% 130%, transparent 0 25%, var(--cream) 25.7% 34%, transparent 34.7%),
-    var(--red);
-  box-shadow: 0 -13px 0 rgba(232, 117, 36, .18), 0 18px 0 rgba(23, 21, 18, .08);
-  pointer-events: none;
-}
-
-.intro::before,
-.about::before {
-  content: "";
-  position: absolute;
-  z-index: 0;
-  width: 230px;
-  height: 230px;
-  border-radius: 50%;
-  opacity: .12;
-  background: repeating-radial-gradient(circle, var(--red) 0 12px, transparent 13px 27px);
-  pointer-events: none;
-}
-
-.intro::before {
-  top: 18%;
-  right: -66px;
-}
-
-.about::before {
-  bottom: 8%;
-  left: -84px;
-  opacity: .09;
-}
-
-.masterclass {
-  position: relative;
-  overflow: hidden;
-  isolation: isolate;
-}
-
-.masterclass::after {
-  content: "";
-  position: absolute;
-  z-index: 0;
-  right: -100px;
-  bottom: -110px;
-  width: 380px;
-  height: 380px;
-  border: 40px solid rgba(245, 201, 75, .28);
-  border-radius: 50%;
-  pointer-events: none;
-}
-
-@media (max-width: 760px) {
-  .hero::before {
-    top: 37%;
-    right: -25%;
-    width: 450px;
-    height: 450px;
-    opacity: .18;
-  }
-
-  .hero::after {
-    left: -24%;
-    bottom: -8px;
-    width: 620px;
-    height: 94px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hero::before,
-  .hero::after,
-  .masterclass::after {
-    transform: none;
-  }
-}
-
-/* The same home language continues through the full journey, with changing scale and opacity. */
-.resources,
-.compare-section,
-.masterclass,
-.about,
-.final-cta,
-.product-hero,
-.detail-includes,
-.detail-compare,
-.faq,
-.footer {
-  position: relative;
-  overflow: hidden;
-  isolation: isolate;
-}
-
-.resources > *,
-.compare-section > *,
-.masterclass > *,
-.about > *,
-.final-cta > *,
-.product-hero > *,
-.detail-includes > *,
-.detail-compare > *,
-.faq > *,
-.footer > * {
-  position: relative;
-  z-index: 1;
-}
-
-/* Soft arch on the resource wall. */
 .resources::before {
   content: "";
   position: absolute;
   z-index: 0;
-  top: 10%;
-  right: -110px;
-  width: 410px;
-  height: 410px;
-  opacity: .13;
-  transform: rotate(-9deg);
+  top: 4%;
+  right: -115px;
+  width: 400px;
+  height: 400px;
+  opacity: .1;
+  transform: rotate(-7deg);
   background:
     radial-gradient(ellipse at 50% 50%, transparent 0 30%, var(--red) 30.5% 37%, transparent 37.5%),
-    radial-gradient(ellipse at 50% 50%, transparent 0 53%, var(--orange) 53.5% 60%, transparent 60.5%),
-    linear-gradient(90deg, transparent 0 49%, var(--yellow) 49% 57%, transparent 57%);
+    radial-gradient(ellipse at 50% 50%, transparent 0 52%, var(--orange) 52.5% 60%, transparent 60.5%),
+    linear-gradient(90deg, transparent 0 48%, var(--yellow) 48% 56%, transparent 56%);
   pointer-events: none;
 }
-
-/* A low rug fragment lets the catalogue sit inside the same room. */
 .resources::after {
   content: "";
   position: absolute;
   z-index: 0;
-  left: -95px;
-  bottom: 9%;
-  width: 350px;
-  height: 118px;
-  opacity: .22;
-  transform: rotate(5deg);
+  left: -80px;
+  bottom: 3%;
+  width: 330px;
+  height: 105px;
+  opacity: .14;
+  transform: rotate(4deg);
   background:
     radial-gradient(ellipse at 16% 110%, transparent 0 25%, var(--cream) 26% 34%, transparent 35%),
     radial-gradient(ellipse at 50% -15%, transparent 0 25%, var(--cream) 26% 34%, transparent 35%),
@@ -226,63 +48,54 @@ summary:focus-visible {
   pointer-events: none;
 }
 
-/* Small circular artwork behind the before/after section. */
-.compare-section::before,
-.detail-compare::before {
-  content: "";
-  position: absolute;
-  z-index: 0;
-  top: 8%;
-  left: -100px;
-  width: 300px;
-  height: 300px;
-  opacity: .12;
-  background: repeating-radial-gradient(circle, var(--orange) 0 15px, transparent 16px 33px);
-  pointer-events: none;
-}
-
-.compare-section::after,
-.detail-compare::after {
-  content: "";
-  position: absolute;
-  z-index: 0;
-  right: -90px;
-  bottom: 12%;
-  width: 290px;
-  height: 150px;
-  opacity: .11;
-  transform: rotate(-5deg);
-  background: linear-gradient(90deg, var(--red) 0 38%, transparent 38% 48%, var(--yellow) 48% 65%, transparent 65%), var(--cream);
-  pointer-events: none;
-}
-
 .masterclass::before {
   content: "";
   position: absolute;
-  z-index: 0;
-  top: 14%;
-  left: -125px;
-  width: 350px;
-  height: 350px;
-  opacity: .17;
-  border: 38px solid var(--yellow);
+  right: -90px;
+  bottom: -120px;
+  width: 310px;
+  height: 310px;
+  border: 36px solid rgba(245, 201, 75, .22);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.masterclass::after {
+  content: "";
+  position: absolute;
+  top: -90px;
+  left: 31%;
+  width: 180px;
+  height: 180px;
+  border: 25px solid rgba(243, 232, 208, .1);
   border-radius: 50%;
   pointer-events: none;
 }
 
+.about::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  right: -95px;
+  top: 10%;
+  width: 290px;
+  height: 220px;
+  opacity: .1;
+  transform: rotate(8deg);
+  background:
+    linear-gradient(90deg, transparent 0 24%, var(--orange) 24% 39%, transparent 39% 49%, var(--red) 49% 66%, transparent 66%),
+    linear-gradient(180deg, var(--yellow) 0 24%, transparent 24% 40%, var(--red) 40% 62%, transparent 62%);
+  pointer-events: none;
+}
 .about::after {
   content: "";
   position: absolute;
   z-index: 0;
-  top: 12%;
-  right: -75px;
-  width: 280px;
-  height: 210px;
-  opacity: .1;
-  transform: rotate(8deg);
-  background:
-    linear-gradient(90deg, transparent 0 25%, var(--orange) 25% 39%, transparent 39% 49%, var(--red) 49% 66%, transparent 66%),
-    linear-gradient(180deg, var(--yellow) 0 24%, transparent 24% 40%, var(--red) 40% 61%, transparent 61%);
+  left: -100px;
+  bottom: 2%;
+  width: 270px;
+  height: 270px;
+  opacity: .07;
+  background: repeating-radial-gradient(circle, var(--red) 0 13px, transparent 14px 29px);
   pointer-events: none;
 }
 
@@ -290,345 +103,56 @@ summary:focus-visible {
   content: "";
   position: absolute;
   z-index: 0;
-  right: -90px;
-  bottom: -170px;
-  width: 540px;
-  height: 540px;
-  opacity: .18;
-  background: repeating-radial-gradient(ellipse at center, var(--red) 0 23px, transparent 24px 48px);
+  left: 8%;
+  top: 14%;
+  width: 145px;
+  height: 145px;
+  opacity: .12;
+  background: repeating-radial-gradient(circle, var(--orange) 0 10px, transparent 11px 23px);
   pointer-events: none;
 }
-
-/* Product detail gets the same visual cues, so it feels like another room in the house. */
-.product-hero::before {
+.final-cta::after {
   content: "";
   position: absolute;
   z-index: 0;
-  top: 18%;
-  right: -120px;
+  right: -130px;
+  bottom: -220px;
+  width: 520px;
+  height: 520px;
+  opacity: .14;
+  background: repeating-radial-gradient(ellipse at center, var(--red) 0 22px, transparent 23px 47px);
+  pointer-events: none;
+}
+
+.product-hero::before, .detail-compare::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  right: -130px;
+  top: 10%;
   width: 370px;
   height: 370px;
-  opacity: .12;
+  opacity: .1;
   background:
-    radial-gradient(ellipse at 50% 50%, transparent 0 34%, var(--red) 34.5% 41%, transparent 41.5%),
-    radial-gradient(ellipse at 50% 50%, transparent 0 57%, var(--orange) 57.5% 64%, transparent 64.5%);
+    radial-gradient(ellipse at center, transparent 0 31%, var(--red) 31.5% 39%, transparent 39.5%),
+    radial-gradient(ellipse at center, transparent 0 54%, var(--orange) 54.5% 62%, transparent 62.5%);
   pointer-events: none;
 }
-
-.detail-includes::before {
-  content: "";
-  position: absolute;
-  z-index: 0;
-  left: 8%;
-  bottom: -80px;
-  width: 310px;
-  height: 180px;
-  opacity: .13;
-  transform: rotate(-7deg);
-  background:
-    radial-gradient(ellipse at 22% 115%, transparent 0 26%, var(--cream) 27% 35%, transparent 36%),
-    radial-gradient(ellipse at 52% -15%, transparent 0 26%, var(--cream) 27% 35%, transparent 36%),
-    radial-gradient(ellipse at 84% 115%, transparent 0 26%, var(--cream) 27% 35%, transparent 36%),
-    var(--orange);
-  pointer-events: none;
-}
-
+.detail-compare::before { right: auto; left: -150px; top: 4%; }
 .faq::before {
   content: "✦  ◠  ✦  ◡  ✦";
   position: absolute;
   z-index: 0;
+  top: 6%;
   right: 5%;
-  top: 16%;
   color: var(--red);
-  opacity: .16;
   font-family: var(--serif);
-  font-size: 42px;
-  letter-spacing: 10px;
-  transform: rotate(-8deg);
-  pointer-events: none;
+  font-size: 40px;
+  letter-spacing: 8px;
+  opacity: .13;
+  transform: rotate(-7deg);
 }
 
-.footer::before {
-  content: "";
-  position: absolute;
-  left: 38%;
-  top: 22px;
-  width: 90px;
-  height: 28px;
-  opacity: .22;
-  background: repeating-linear-gradient(90deg, var(--red) 0 11px, transparent 11px 20px, var(--orange) 20px 28px, transparent 28px 39px);
-  pointer-events: none;
-}
-
-@media (max-width: 760px) {
-  .resources::before,
-  .product-hero::before {
-    right: -185px;
-    opacity: .1;
-  }
-
-  .resources::after {
-    left: -145px;
-    bottom: 7%;
-  }
-
-  .compare-section::before,
-  .detail-compare::before {
-    left: -160px;
-    top: 4%;
-  }
-
-  .compare-section::after,
-  .detail-compare::after {
-    right: -160px;
-  }
-
-  .about::after {
-    right: -135px;
-  }
-
-  .footer::before {
-    left: auto;
-    right: 20px;
-    top: 26px;
-  }
-}
-
-/* Conversion cues inspired by the reference, translated into NARAZAS language. */
-.compatibility-strip {
-  display: grid;
-  grid-template-columns: minmax(250px, .9fr) 1.1fr;
-  gap: clamp(40px, 8vw, 120px);
-  align-items: end;
-  padding-top: clamp(70px, 8vw, 110px);
-  padding-bottom: clamp(70px, 8vw, 110px);
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-}
-
-.compatibility-head {
-  max-width: 370px;
-}
-
-.compatibility-head h2,
-.how-heading h2 {
-  margin: 0;
-  font-family: var(--serif);
-  font-size: clamp(64px, 7vw, 110px);
-  font-weight: 500;
-  line-height: .82;
-  letter-spacing: -.04em;
-  text-transform: uppercase;
-}
-
-.compatibility-head h2 em,
-.how-heading h2 em {
-  color: var(--red);
-  font-style: italic;
-}
-
-.compatibility-head > p:last-child {
-  max-width: 280px;
-  margin: 28px 0 0;
-  font-size: 13px;
-  line-height: 1.55;
-}
-
-.compatibility-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  border-top: 1px solid var(--line);
-}
-
-.compatibility-grid > div {
-  min-height: 102px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 14px;
-  padding: 17px 14px 14px 0;
-  border-right: 1px solid var(--line);
-}
-
-.compatibility-grid > div:not(:first-child) {
-  padding-left: 14px;
-}
-
-.compatibility-grid > div:last-child {
-  border-right: 0;
-}
-
-.compatibility-grid strong {
-  font-size: 11px;
-  letter-spacing: .14em;
-}
-
-.compatibility-grid span {
-  color: rgba(23, 21, 18, .55);
-  font-size: 9px;
-  line-height: 1.35;
-}
-
-.compatibility-strip::after {
-  content: "";
-  position: absolute;
-  z-index: 0;
-  right: -30px;
-  top: 12%;
-  width: 90px;
-  height: 90px;
-  opacity: .1;
-  border: 12px solid var(--orange);
-  border-radius: 50%;
-  pointer-events: none;
-}
-
-.how-it-works {
-  display: grid;
-  grid-template-columns: minmax(450px, .9fr) 1.1fr;
-  gap: clamp(40px, 9vw, 140px);
-  align-items: start;
-  padding-top: clamp(85px, 11vw, 145px);
-  padding-bottom: clamp(85px, 11vw, 145px);
-  background: var(--ink);
-  color: var(--cream);
-}
-
-.how-it-works .section-label {
-  color: var(--yellow);
-}
-
-.how-heading h2 {
-  font-size: clamp(64px, 6.2vw, 96px);
-}
-
-.about h2 {
-  font-size: clamp(58px, 6.4vw, 94px);
-}
-
-.how-heading h2 em {
-  color: var(--orange);
-}
-
-.how-it-works-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: clamp(18px, 3vw, 45px);
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.how-it-works-grid li {
-  min-width: 0;
-  border-top: 1px solid rgba(243, 232, 208, .4);
-  padding-top: 18px;
-}
-
-.how-number {
-  display: block;
-  color: var(--yellow);
-  font-family: var(--serif);
-  font-size: 42px;
-  line-height: 1;
-}
-
-.how-it-works-grid strong {
-  display: block;
-  margin-top: 32px;
-  font-family: var(--serif);
-  font-size: 30px;
-  font-weight: 500;
-}
-
-.how-it-works-grid p {
-  max-width: 190px;
-  margin: 13px 0 0;
-  color: rgba(243, 232, 208, .66);
-  font-size: 12px;
-  line-height: 1.6;
-}
-
-.how-it-works::after {
-  content: "";
-  position: absolute;
-  z-index: 0;
-  right: -100px;
-  top: -140px;
-  width: 350px;
-  height: 350px;
-  opacity: .12;
-  border: 34px solid var(--red);
-  border-radius: 50%;
-  pointer-events: none;
-}
-
-@media (max-width: 760px) {
-  .compatibility-strip,
-  .how-it-works {
-    grid-template-columns: 1fr;
-    gap: 52px;
-  }
-
-  .compatibility-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .compatibility-grid > div:nth-child(2) {
-    border-right: 0;
-  }
-
-  .compatibility-grid > div:nth-child(n + 3) {
-    border-top: 1px solid var(--line);
-  }
-
-  .compatibility-grid > div:nth-child(3) {
-    padding-left: 0;
-  }
-
-  .how-it-works-grid {
-    grid-template-columns: 1fr;
-    gap: 34px;
-  }
-
-  .how-it-works-grid p {
-    max-width: 280px;
-  }
-}
-
-@media (max-width: 760px) {
-  .compatibility-strip,
-  .compatibility-head,
-  .compatibility-grid,
-  .how-it-works,
-  .how-heading,
-  .how-it-works-grid {
-    min-width: 0;
-    max-width: 100%;
-  }
-
-  .how-heading h2 {
-    font-size: clamp(54px, 16vw, 80px);
-  }
-
-  .about h2 {
-    font-size: clamp(52px, 16vw, 80px);
-  }
-
-  .menu-toggle,
-  .demo-cart,
-  .footer-links button {
-    min-height: 44px;
-  }
-}
-
-@media (min-width: 761px) and (max-width: 1100px) {
-  .how-it-works {
-    grid-template-columns: 1fr;
-    gap: 58px;
-  }
-
-  .how-heading {
-    max-width: 560px;
-  }
+@media (prefers-reduced-motion: reduce) {
+  .resources::before, .resources::after, .about::before, .final-cta::after { transform: none; }
 }
