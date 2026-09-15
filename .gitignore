@@ -1,0 +1,10 @@
+# Local source/reference images; the optimized public asset is kept in public/images/.
+/fondos.jpeg
+/WhatsApp Image 2026-09-15 at 10.46.26.jpeg
+
+# Local development/runtime files.
+node_modules/
+dist/
+.env
+.env.*
+!.env.example

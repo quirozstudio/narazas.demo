@@ -1,0 +1,368 @@
+/* Home-inspired visual language: warm wall art, wood and the red/cream rug. */
+body {
+  background-color: #f3e8d0;
+  background-image: radial-gradient(circle at 14% 8%, rgba(183, 42, 46, .055) 0 1px, transparent 1.5px);
+  background-size: 26px 26px;
+}
+
+.hero,
+.intro,
+.resources,
+.compare-section,
+.about,
+.final-cta {
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.hero > *,
+.intro > *,
+.resources > *,
+.compare-section > *,
+.about > *,
+.final-cta > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Abstract wall piece: layered arches and blocks taken from the warm palette. */
+.hero::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  top: 9%;
+  right: 4%;
+  width: min(58vw, 780px);
+  height: min(58vw, 780px);
+  opacity: .22;
+  transform: rotate(4deg);
+  background:
+    radial-gradient(ellipse at 48% 44%, transparent 0 22%, var(--red) 22.4% 28%, transparent 28.4%),
+    radial-gradient(ellipse at 48% 44%, transparent 0 39%, var(--orange) 39.4% 45%, transparent 45.4%),
+    linear-gradient(90deg, transparent 0 47%, var(--yellow) 47% 56%, transparent 56%),
+    linear-gradient(180deg, transparent 0 55%, var(--red) 55% 67%, transparent 67%);
+  pointer-events: none;
+}
+
+/* Rug-shaped floor plane with an imperfect, repeating geometric motif. */
+.hero::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  left: -7%;
+  bottom: -18px;
+  width: min(74vw, 980px);
+  height: 132px;
+  opacity: .92;
+  transform: rotate(-2deg);
+  background:
+    radial-gradient(ellipse at 18% 130%, transparent 0 26%, var(--cream) 26.7% 35%, transparent 35.7%),
+    radial-gradient(ellipse at 51% -25%, transparent 0 25%, var(--cream) 25.7% 34%, transparent 34.7%),
+    radial-gradient(ellipse at 84% 130%, transparent 0 25%, var(--cream) 25.7% 34%, transparent 34.7%),
+    var(--red);
+  box-shadow: 0 -13px 0 rgba(232, 117, 36, .18), 0 18px 0 rgba(23, 21, 18, .08);
+  pointer-events: none;
+}
+
+.intro::before,
+.about::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  width: 230px;
+  height: 230px;
+  border-radius: 50%;
+  opacity: .12;
+  background: repeating-radial-gradient(circle, var(--red) 0 12px, transparent 13px 27px);
+  pointer-events: none;
+}
+
+.intro::before {
+  top: 18%;
+  right: -66px;
+}
+
+.about::before {
+  bottom: 8%;
+  left: -84px;
+  opacity: .09;
+}
+
+.masterclass {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.masterclass::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  right: -100px;
+  bottom: -110px;
+  width: 380px;
+  height: 380px;
+  border: 40px solid rgba(245, 201, 75, .28);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+@media (max-width: 760px) {
+  .hero::before {
+    top: 37%;
+    right: -25%;
+    width: 450px;
+    height: 450px;
+    opacity: .18;
+  }
+
+  .hero::after {
+    left: -24%;
+    bottom: -8px;
+    width: 620px;
+    height: 94px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero::before,
+  .hero::after,
+  .masterclass::after {
+    transform: none;
+  }
+}
+
+/* The same home language continues through the full journey, with changing scale and opacity. */
+.resources,
+.compare-section,
+.masterclass,
+.about,
+.final-cta,
+.product-hero,
+.detail-includes,
+.detail-compare,
+.faq,
+.footer {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.resources > *,
+.compare-section > *,
+.masterclass > *,
+.about > *,
+.final-cta > *,
+.product-hero > *,
+.detail-includes > *,
+.detail-compare > *,
+.faq > *,
+.footer > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Soft arch on the resource wall. */
+.resources::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  top: 10%;
+  right: -110px;
+  width: 410px;
+  height: 410px;
+  opacity: .13;
+  transform: rotate(-9deg);
+  background:
+    radial-gradient(ellipse at 50% 50%, transparent 0 30%, var(--red) 30.5% 37%, transparent 37.5%),
+    radial-gradient(ellipse at 50% 50%, transparent 0 53%, var(--orange) 53.5% 60%, transparent 60.5%),
+    linear-gradient(90deg, transparent 0 49%, var(--yellow) 49% 57%, transparent 57%);
+  pointer-events: none;
+}
+
+/* A low rug fragment lets the catalogue sit inside the same room. */
+.resources::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  left: -95px;
+  bottom: 9%;
+  width: 350px;
+  height: 118px;
+  opacity: .22;
+  transform: rotate(5deg);
+  background:
+    radial-gradient(ellipse at 16% 110%, transparent 0 25%, var(--cream) 26% 34%, transparent 35%),
+    radial-gradient(ellipse at 50% -15%, transparent 0 25%, var(--cream) 26% 34%, transparent 35%),
+    radial-gradient(ellipse at 84% 110%, transparent 0 25%, var(--cream) 26% 34%, transparent 35%),
+    var(--red);
+  pointer-events: none;
+}
+
+/* Small circular artwork behind the before/after section. */
+.compare-section::before,
+.detail-compare::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  top: 8%;
+  left: -100px;
+  width: 300px;
+  height: 300px;
+  opacity: .12;
+  background: repeating-radial-gradient(circle, var(--orange) 0 15px, transparent 16px 33px);
+  pointer-events: none;
+}
+
+.compare-section::after,
+.detail-compare::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  right: -90px;
+  bottom: 12%;
+  width: 290px;
+  height: 150px;
+  opacity: .11;
+  transform: rotate(-5deg);
+  background: linear-gradient(90deg, var(--red) 0 38%, transparent 38% 48%, var(--yellow) 48% 65%, transparent 65%), var(--cream);
+  pointer-events: none;
+}
+
+.masterclass::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  top: 14%;
+  left: -125px;
+  width: 350px;
+  height: 350px;
+  opacity: .17;
+  border: 38px solid var(--yellow);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.about::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  top: 12%;
+  right: -75px;
+  width: 280px;
+  height: 210px;
+  opacity: .1;
+  transform: rotate(8deg);
+  background:
+    linear-gradient(90deg, transparent 0 25%, var(--orange) 25% 39%, transparent 39% 49%, var(--red) 49% 66%, transparent 66%),
+    linear-gradient(180deg, var(--yellow) 0 24%, transparent 24% 40%, var(--red) 40% 61%, transparent 61%);
+  pointer-events: none;
+}
+
+.final-cta::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  right: -90px;
+  bottom: -170px;
+  width: 540px;
+  height: 540px;
+  opacity: .18;
+  background: repeating-radial-gradient(ellipse at center, var(--red) 0 23px, transparent 24px 48px);
+  pointer-events: none;
+}
+
+/* Product detail gets the same visual cues, so it feels like another room in the house. */
+.product-hero::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  top: 18%;
+  right: -120px;
+  width: 370px;
+  height: 370px;
+  opacity: .12;
+  background:
+    radial-gradient(ellipse at 50% 50%, transparent 0 34%, var(--red) 34.5% 41%, transparent 41.5%),
+    radial-gradient(ellipse at 50% 50%, transparent 0 57%, var(--orange) 57.5% 64%, transparent 64.5%);
+  pointer-events: none;
+}
+
+.detail-includes::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  left: 8%;
+  bottom: -80px;
+  width: 310px;
+  height: 180px;
+  opacity: .13;
+  transform: rotate(-7deg);
+  background:
+    radial-gradient(ellipse at 22% 115%, transparent 0 26%, var(--cream) 27% 35%, transparent 36%),
+    radial-gradient(ellipse at 52% -15%, transparent 0 26%, var(--cream) 27% 35%, transparent 36%),
+    radial-gradient(ellipse at 84% 115%, transparent 0 26%, var(--cream) 27% 35%, transparent 36%),
+    var(--orange);
+  pointer-events: none;
+}
+
+.faq::before {
+  content: "✦  ◠  ✦  ◡  ✦";
+  position: absolute;
+  z-index: 0;
+  right: 5%;
+  top: 16%;
+  color: var(--red);
+  opacity: .16;
+  font-family: var(--serif);
+  font-size: 42px;
+  letter-spacing: 10px;
+  transform: rotate(-8deg);
+  pointer-events: none;
+}
+
+.footer::before {
+  content: "";
+  position: absolute;
+  left: 38%;
+  top: 22px;
+  width: 90px;
+  height: 28px;
+  opacity: .22;
+  background: repeating-linear-gradient(90deg, var(--red) 0 11px, transparent 11px 20px, var(--orange) 20px 28px, transparent 28px 39px);
+  pointer-events: none;
+}
+
+@media (max-width: 760px) {
+  .resources::before,
+  .product-hero::before {
+    right: -185px;
+    opacity: .1;
+  }
+
+  .resources::after {
+    left: -145px;
+    bottom: 7%;
+  }
+
+  .compare-section::before,
+  .detail-compare::before {
+    left: -160px;
+    top: 4%;
+  }
+
+  .compare-section::after,
+  .detail-compare::after {
+    right: -160px;
+  }
+
+  .about::after {
+    right: -135px;
+  }
+
+  .footer::before {
+    left: auto;
+    right: 20px;
+    top: 26px;
+  }
+}
