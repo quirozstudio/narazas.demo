@@ -93,6 +93,15 @@ a:focus-visible, button:focus-visible, input:focus-visible, summary:focus-visibl
   background: rgba(243, 232, 208, .94);
   backdrop-filter: blur(10px);
 }
+.home-page .site-header {
+  position: absolute;
+  top: 31px;
+  right: 0;
+  left: 0;
+  border-bottom: 0;
+  background: transparent;
+  backdrop-filter: none;
+}
 .wordmark {
   flex: 0 0 auto;
   font-size: 20px;
@@ -167,17 +176,23 @@ a:focus-visible, button:focus-visible, input:focus-visible, summary:focus-visibl
 .menu-toggle span { margin-left: 8px; font-size: 17px; }
 
 .hero {
-  display: grid;
-  min-height: min(790px, calc(100svh - 109px));
-  grid-template-columns: minmax(0, 48%) minmax(0, 52%);
+  position: relative;
+  display: block;
+  min-height: calc(100svh - 31px);
   border-bottom: 1px solid var(--line);
+  overflow: hidden;
 }
 .hero-copy {
+  position: relative;
   z-index: 2;
-  align-self: center;
-  padding-top: clamp(65px, 7vw, 108px);
-  padding-right: clamp(24px, 2vw, 38px);
-  padding-bottom: clamp(65px, 7vw, 108px);
+  display: flex;
+  width: min(58%, 820px);
+  min-height: calc(100svh - 31px);
+  flex-direction: column;
+  justify-content: center;
+  padding-top: clamp(130px, 12vw, 180px);
+  padding-right: 28px;
+  padding-bottom: clamp(95px, 9vw, 130px);
 }
 .kicker, .section-label {
   font-size: 9px;
@@ -188,6 +203,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, summary:focus-visibl
 }
 .kicker { margin-bottom: clamp(24px, 3vw, 44px); }
 .hero h1 {
+  max-width: 760px;
   margin: 0;
   font-family: var(--serif);
   font-size: clamp(66px, 7.15vw, 116px);
@@ -235,14 +251,16 @@ a:focus-visible, button:focus-visible, input:focus-visible, summary:focus-visibl
 .button--line:hover { background: var(--red); color: var(--cream); }
 .button--cream { background: var(--cream); color: var(--red); }
 .button--compact { min-height: 44px; padding-inline: 18px; }
-.hero-art { position: relative; min-width: 0; overflow: hidden; background: #ceb99d; }
-.hero-image { width: 100%; height: 100%; min-height: 610px; }
-.hero-image img { object-fit: cover; object-position: 55% center; }
+.hero-art { position: absolute; z-index: 0; inset: 0; min-width: 0; overflow: hidden; background: #ceb99d; }
+.hero-image { width: 100%; height: 100%; min-height: 100%; }
+.hero-image img { object-fit: cover; object-position: center; }
 .hero-art::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, rgba(243, 232, 208, .22), transparent 22%);
+  background:
+    linear-gradient(90deg, rgba(243, 232, 208, .98) 0%, rgba(243, 232, 208, .9) 24%, rgba(243, 232, 208, .52) 43%, rgba(243, 232, 208, .08) 63%, transparent 76%),
+    linear-gradient(180deg, rgba(243, 232, 208, .12), transparent 24%, transparent 78%, rgba(23, 21, 18, .12));
   pointer-events: none;
 }
 .hero-script, .hero-signoff, .coming-soon, .about-note p {
@@ -251,12 +269,23 @@ a:focus-visible, button:focus-visible, input:focus-visible, summary:focus-visibl
   line-height: 1.05;
   transform: rotate(-7deg);
 }
-.hero-script { position: absolute; z-index: 2; top: 18%; left: 3%; font-size: 24px; }
+.hero-script {
+  position: absolute;
+  z-index: 3;
+  top: 19%;
+  right: 3.5%;
+  padding: 14px 17px;
+  background: rgba(245, 201, 75, .66);
+  box-shadow: 0 12px 30px rgba(23, 21, 18, .1);
+  font-size: 15px;
+  transform: rotate(2deg);
+}
 .editor-note {
   position: absolute;
   z-index: 3;
-  right: 17%;
-  bottom: 14%;
+  right: auto;
+  bottom: 3.5%;
+  left: var(--page-pad);
   display: grid;
   min-width: 145px;
   gap: 4px;
@@ -278,6 +307,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, summary:focus-visibl
   padding: 13px 10px;
   background: #25211e;
   transform: rotate(5deg);
+  display: none;
   box-shadow: 0 15px 35px rgba(23, 21, 18, .3);
 }
 .film-strip::before, .film-strip::after {
@@ -293,7 +323,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, summary:focus-visibl
 .film-strip::after { right: 2px; }
 .film-strip span { display: block; height: 76px; margin-bottom: 7px; background: linear-gradient(145deg, #d7c4ac, #54463e); }
 .film-strip span:last-child { margin-bottom: 0; }
-.hero-signoff { position: absolute; z-index: 3; right: 3%; bottom: 5%; font-size: 13px; text-align: center; }
+.hero-signoff { display: none; }
 
 .benefits {
   display: grid;
@@ -493,7 +523,8 @@ a:focus-visible, button:focus-visible, input:focus-visible, summary:focus-visibl
 }
 .about-image { aspect-ratio: .82; overflow: hidden; border-radius: 8px; }
 .about-image img { object-fit: cover; object-position: center; }
-.about h2 { font-size: clamp(62px, 7vw, 108px); }
+.about h2 { font-size: clamp(62px, 6.2vw, 94px); }
+.about h2 em { color: var(--red); font-style: italic; }
 .about-copy > p:not(.section-label) { max-width: 420px; margin-top: 24px; font-size: 13px; line-height: 1.6; }
 .about-copy .button { margin-top: 25px; }
 .about-note { text-align: center; transform: rotate(4deg); }

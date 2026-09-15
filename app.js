@@ -104,7 +104,7 @@ function homeTemplate() {
     </div>
     <div class="hero-art reveal reveal-delay">
       ${imageBlock(asset('hero-final.jpg'), 'Nathalie Narazas en su espacio creativo', 'hero-image', true)}
-      <span class="hero-script">Ideas<br />Edición<br />Resultados</span>
+      <span class="hero-script">Ideas<br />Edición<br />Ritmo<br />Color<br />Sonido<br />Resultados<br />♡</span>
       <div class="editor-note"><span>REC&nbsp; <b>●</b>&nbsp; 00:14:27</span><span>4K</span><span>9:16</span><span>CUT</span><span>COLOR</span><span>SOUND</span><span>EXPORT&nbsp; ↙</span></div>
       <div class="film-strip" aria-hidden="true"><span></span><span></span><span></span></div>
       <span class="hero-signoff">SAME GIRL<br />BIGGER IDEAS ◡</span>
@@ -126,7 +126,7 @@ function homeTemplate() {
 
   <section class="about section-pad" id="sobre-mi">
     <div class="about-photo reveal">${imageBlock(asset('about-final.jpg'), 'Retrato de Nathalie Narazas', 'about-image')}</div>
-    <div class="about-copy reveal"><p class="section-label">HOLA,</p><h2>Soy Nathalie.</h2><p>Creo contenido para vivir.<br />Y estos son algunos de los recursos que forman parte de mi proceso creativo.</p><button class="button button--red button--compact" type="button" data-demo="about">Conóceme <span>→</span></button></div>
+    <div class="about-copy reveal"><p class="section-label">VOZ PROPIA / 01</p><h2>Creo con<br /><em>intención.</em></h2><p>Sé lo que quiero contar y cómo quiero hacerlo. Transformo ideas en contenido con identidad, criterio y una voz propia.</p><button class="button button--red button--compact" type="button" data-demo="about">Conóceme <span>→</span></button></div>
     <div class="about-note reveal"><span class="polaroid">N</span><p>MIS HERRAMIENTAS<br />MI ESTILO<br /><u>TU TURNO</u> ♡</p></div>
   </section>
 
@@ -231,6 +231,7 @@ const observer = new IntersectionObserver((entries) => entries.forEach((entry) =
 
 const productId = new URLSearchParams(window.location.search).get('producto');
 const product = PRODUCTS.find((item) => item.id === productId);
+document.body.classList.add(product ? 'product-page' : 'home-page');
 app.innerHTML = product ? productTemplate(product) : homeTemplate();
 
 if (product) {

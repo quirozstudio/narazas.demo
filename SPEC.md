@@ -26,7 +26,7 @@ Creadores de contenido y personas que quieren editar mejor, crear más rápido y
 
 ## Componentes
 
-Entrada breve, cinta editorial, header comercial, hero partido, banda de ventajas, catálogo editorial de tres productos, comparador LUT, bloque independiente de masterclass, bloque sobre Nathalie, CTA final, footer y ficha de producto.
+Entrada breve, cinta editorial, header superpuesto, hero fotográfico integrado, banda de ventajas, catálogo editorial de tres productos, comparador LUT, bloque independiente de masterclass, bloque sobre Nathalie, CTA final, footer y ficha de producto.
 
 ## Productos demo
 
