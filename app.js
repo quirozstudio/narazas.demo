@@ -1,5 +1,5 @@
 const SITE_ROOT = window.location.hostname.endsWith('github.io') ? '/narazas.demo' : '';
-const asset = (file) => `${SITE_ROOT}/images/${file}`;
+const asset = (file) => `${SITE_ROOT}/public/images/${file}`;
 const page = (path) => `${SITE_ROOT}${path}`;
 
 const PRODUCTS = [
@@ -41,7 +41,7 @@ const nav = document.querySelector('.main-nav');
 const menuToggle = document.querySelector('.menu-toggle');
 
 function imageBlock(src, alt, className = '') {
-  const resolvedSrc = src.startsWith('/images/') ? `${SITE_ROOT}${src}` : src;
+  const resolvedSrc = src.startsWith('/images/') ? `${SITE_ROOT}/public${src}` : src;
   return `<div class="image-frame ${className}"><img src="${resolvedSrc}" alt="${alt}" loading="lazy" /></div>`;
 }
 
