@@ -3,6 +3,16 @@ body {
   background-color: #f3e8d0;
   background-image: radial-gradient(circle at 14% 8%, rgba(183, 42, 46, .055) 0 1px, transparent 1.5px);
   background-size: 26px 26px;
+  overflow-x: clip;
+}
+
+html {
+  overflow-x: clip;
+}
+
+.marquee {
+  overflow: clip;
+  contain: paint;
 }
 
 .hero,
@@ -364,5 +374,220 @@ body {
     left: auto;
     right: 20px;
     top: 26px;
+  }
+}
+
+/* Conversion cues inspired by the reference, translated into NARAZAS language. */
+.compatibility-strip {
+  display: grid;
+  grid-template-columns: minmax(250px, .9fr) 1.1fr;
+  gap: clamp(40px, 8vw, 120px);
+  align-items: end;
+  padding-top: clamp(70px, 8vw, 110px);
+  padding-bottom: clamp(70px, 8vw, 110px);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.compatibility-head {
+  max-width: 370px;
+}
+
+.compatibility-head h2,
+.how-heading h2 {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(64px, 7vw, 110px);
+  font-weight: 500;
+  line-height: .82;
+  letter-spacing: -.04em;
+  text-transform: uppercase;
+}
+
+.compatibility-head h2 em,
+.how-heading h2 em {
+  color: var(--red);
+  font-style: italic;
+}
+
+.compatibility-head > p:last-child {
+  max-width: 280px;
+  margin: 28px 0 0;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.compatibility-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid var(--line);
+}
+
+.compatibility-grid > div {
+  min-height: 102px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 17px 14px 14px 0;
+  border-right: 1px solid var(--line);
+}
+
+.compatibility-grid > div:not(:first-child) {
+  padding-left: 14px;
+}
+
+.compatibility-grid > div:last-child {
+  border-right: 0;
+}
+
+.compatibility-grid strong {
+  font-size: 11px;
+  letter-spacing: .14em;
+}
+
+.compatibility-grid span {
+  color: rgba(23, 21, 18, .55);
+  font-size: 9px;
+  line-height: 1.35;
+}
+
+.compatibility-strip::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  right: -30px;
+  top: 12%;
+  width: 90px;
+  height: 90px;
+  opacity: .1;
+  border: 12px solid var(--orange);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.how-it-works {
+  display: grid;
+  grid-template-columns: minmax(240px, .7fr) 1.3fr;
+  gap: clamp(40px, 9vw, 140px);
+  align-items: start;
+  padding-top: clamp(85px, 11vw, 145px);
+  padding-bottom: clamp(85px, 11vw, 145px);
+  background: var(--ink);
+  color: var(--cream);
+}
+
+.how-it-works .section-label {
+  color: var(--yellow);
+}
+
+.how-heading h2 {
+  font-size: clamp(76px, 9vw, 135px);
+}
+
+.how-heading h2 em {
+  color: var(--orange);
+}
+
+.how-it-works-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(18px, 3vw, 45px);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.how-it-works-grid li {
+  min-width: 0;
+  border-top: 1px solid rgba(243, 232, 208, .4);
+  padding-top: 18px;
+}
+
+.how-number {
+  display: block;
+  color: var(--yellow);
+  font-family: var(--serif);
+  font-size: 42px;
+  line-height: 1;
+}
+
+.how-it-works-grid strong {
+  display: block;
+  margin-top: 32px;
+  font-family: var(--serif);
+  font-size: 30px;
+  font-weight: 500;
+}
+
+.how-it-works-grid p {
+  max-width: 190px;
+  margin: 13px 0 0;
+  color: rgba(243, 232, 208, .66);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.how-it-works::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  right: -100px;
+  top: -140px;
+  width: 350px;
+  height: 350px;
+  opacity: .12;
+  border: 34px solid var(--red);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+@media (max-width: 760px) {
+  .compatibility-strip,
+  .how-it-works {
+    grid-template-columns: 1fr;
+    gap: 52px;
+  }
+
+  .compatibility-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .compatibility-grid > div:nth-child(2) {
+    border-right: 0;
+  }
+
+  .compatibility-grid > div:nth-child(n + 3) {
+    border-top: 1px solid var(--line);
+  }
+
+  .compatibility-grid > div:nth-child(3) {
+    padding-left: 0;
+  }
+
+  .how-it-works-grid {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+
+  .how-it-works-grid p {
+    max-width: 280px;
+  }
+}
+
+@media (max-width: 760px) {
+  .compatibility-strip,
+  .compatibility-head,
+  .compatibility-grid,
+  .how-it-works,
+  .how-heading,
+  .how-it-works-grid {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .how-heading h2 {
+    font-size: clamp(64px, 18vw, 88px);
+    overflow-wrap: break-word;
   }
 }

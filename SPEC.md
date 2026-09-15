@@ -26,7 +26,7 @@ Creadores de contenido y personas que quieren editar mejor, crear más rápido y
 
 ## Componentes
 
-Header compacto, hero con fotografía, banda marquee, introducción, listado editorial de productos, comparador LUT, bloque independiente de masterclass, bloque sobre Nathalie, CTA final, footer y ficha de producto.
+Header compacto, hero con fotografía, banda marquee, barra de compatibilidad provisional, introducción, listado editorial de productos, comparador LUT, bloque “cómo funciona”, bloque independiente de masterclass, bloque sobre Nathalie, CTA final, footer y ficha de producto.
 
 ## Productos demo
 
